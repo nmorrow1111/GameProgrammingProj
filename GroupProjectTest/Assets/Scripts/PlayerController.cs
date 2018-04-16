@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
     float turnSmoothVelocity;
 
     public float speedSmoothTime = 0.1f;
+    public float speedJumpTime = 0.1f;
     float speedSmoothVelocity;
     float currentSpeed;
     float velocityY;
@@ -27,8 +28,10 @@ public class PlayerController : MonoBehaviour
     CharacterController controller;
 
 	// Use this for initialization
-	void Start ()
+	IEnumerator Start ()
     {
+        yield return new WaitForSeconds(.15f);
+
         animator = GetComponent<Animator>();
         cameraT = Camera.main.transform;
         controller = GetComponent<CharacterController>();
@@ -47,16 +50,17 @@ public class PlayerController : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Space))
         {
             Jump();
+            animator.SetFloat("jumpPercent", 1f, speedJumpTime, Time.deltaTime);
         }
 
         // Player Animation
         float animationSpeedPercent = ((running) ? currentSpeed / runSpeed : currentSpeed / walkSpeed * .5f);
         animator.SetFloat("speedPercent", animationSpeedPercent, speedSmoothTime, Time.deltaTime);
 
-        bool jumpBool = ((!controller.isGrounded) ? true : false);
-        animator.SetBool("jumpCheck", jumpBool);
+        //bool jumpBool = ((!controller.isGrounded) ? true : false);
+        
     }
-
+    // Player Movement
     void Move(Vector2 inputDir, bool running)
     {
         if (inputDir != Vector2.zero)
@@ -79,7 +83,7 @@ public class PlayerController : MonoBehaviour
             velocityY = 0;
         }
     }
-
+    // Player Jumping
     void Jump()
     {
         if(controller.isGrounded)
@@ -88,7 +92,7 @@ public class PlayerController : MonoBehaviour
             velocityY = jumpVelocity;
         }
     }
-
+    // Required for smooth movements
     float getModifiedSmoothTime (float smoothTime)
     {
         if (controller.isGrounded)
@@ -102,5 +106,40 @@ public class PlayerController : MonoBehaviour
         }
 
         return smoothTime / airControlPercent;
+    }
+    // Checks for player Collision
+    void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        // Collides with a chunk spawner (orb)
+        if(hit.transform.tag == "SpawnChunk")
+        {
+            if (hit.gameObject.name == "SpawnChunkNorth")
+            {
+                Transform refChunk = hit.gameObject.GetComponentInParent<Transform>();
+                hit.gameObject.GetComponentInParent<MapManager>().SpawnNewChunk("North", refChunk);
+                Destroy(hit.gameObject);
+            }
+
+            else if (hit.gameObject.name == "SpawnChunkSouth")
+            {
+                Transform refChunk = hit.gameObject.GetComponentInParent<Transform>();
+                hit.gameObject.GetComponentInParent<MapManager>().SpawnNewChunk("South", refChunk);
+                Destroy(hit.gameObject);
+            }
+
+            else if (hit.gameObject.name == "SpawnChunkEast")
+            {
+                Transform refChunk = hit.gameObject.GetComponentInParent<Transform>();
+                hit.gameObject.GetComponentInParent<MapManager>().SpawnNewChunk("East", refChunk);
+                Destroy(hit.gameObject);
+            }
+
+            else if (hit.gameObject.name == "SpawnChunkWest")
+            {
+                Transform refChunk = hit.gameObject.GetComponentInParent<Transform>();
+                hit.gameObject.GetComponentInParent<MapManager>().SpawnNewChunk("West", refChunk);
+                Destroy(hit.gameObject);
+            }
+        }
     }
 }

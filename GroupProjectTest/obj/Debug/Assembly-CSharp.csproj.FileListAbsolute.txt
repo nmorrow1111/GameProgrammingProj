@@ -65,3 +65,4 @@ E:\The Ginger\Documents\GroupProjectTest\Temp\bin\Debug\UnityEditor.iOS.Extensio
 E:\The Ginger\Documents\GroupProjectTest\obj\Debug\Assembly-CSharp.csproj.CoreCompileInputs.cache
 E:\The Ginger\Documents\GroupProjectTest\obj\Debug\Assembly-CSharp.dll
 E:\The Ginger\Documents\GroupProjectTest\obj\Debug\Assembly-CSharp.pdb
+E:\The Ginger\Documents\GroupProjectTest\obj\Debug\Assembly-CSharp.csprojResolveAssemblyReference.cache
