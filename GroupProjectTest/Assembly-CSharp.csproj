@@ -51,8 +51,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Player EDIT\ProjectileDestroyUponContact.cs" />
-     <Compile Include="Assets\Player EDIT\ProjectileShoot.cs" />
+     <Compile Include="Assets\Player EDIT\Scripts\ProjectileDestroyUponContact.cs" />
+     <Compile Include="Assets\Player EDIT\Scripts\ProjectileShoot.cs" />
      <Compile Include="Assets\PostProcessing\Runtime\Attributes\GetSetAttribute.cs" />
      <Compile Include="Assets\PostProcessing\Runtime\Attributes\MinAttribute.cs" />
      <Compile Include="Assets\PostProcessing\Runtime\Attributes\TrackballAttribute.cs" />

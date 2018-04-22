@@ -17,7 +17,6 @@ public class PlayerController : MonoBehaviour
     float turnSmoothVelocity;
 
     public float speedSmoothTime = 0.1f;
-    public float speedJumpTime = 0.1f;
     float speedSmoothVelocity;
     float currentSpeed;
     float velocityY;
@@ -50,15 +49,11 @@ public class PlayerController : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Space))
         {
             Jump();
-            animator.SetFloat("jumpPercent", 1f, speedJumpTime, Time.deltaTime);
         }
 
         // Player Animation
         float animationSpeedPercent = ((running) ? currentSpeed / runSpeed : currentSpeed / walkSpeed * .5f);
         animator.SetFloat("speedPercent", animationSpeedPercent, speedSmoothTime, Time.deltaTime);
-
-        //bool jumpBool = ((!controller.isGrounded) ? true : false);
-        
     }
     // Player Movement
     void Move(Vector2 inputDir, bool running)

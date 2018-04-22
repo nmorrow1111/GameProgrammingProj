@@ -1464,7 +1464,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 54421085469976032, guid: bb5647642fbe83f4aac8a2a381257b05,
     type: 2}
-  speed: 100
+  speed: 50
 --- !u!137 &137825514677258642
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
