@@ -51,8 +51,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Player EDIT\Scripts\ProjectileDestroyUponContact.cs" />
-     <Compile Include="Assets\Player EDIT\Scripts\ProjectileShoot.cs" />
+     <Compile Include="Assets\NavMeshComponents\Scripts\NavMeshLink.cs" />
+     <Compile Include="Assets\NavMeshComponents\Scripts\NavMeshModifier.cs" />
+     <Compile Include="Assets\NavMeshComponents\Scripts\NavMeshModifierVolume.cs" />
+     <Compile Include="Assets\NavMeshComponents\Scripts\NavMeshSurface.cs" />
      <Compile Include="Assets\PostProcessing\Runtime\Attributes\GetSetAttribute.cs" />
      <Compile Include="Assets\PostProcessing\Runtime\Attributes\MinAttribute.cs" />
      <Compile Include="Assets\PostProcessing\Runtime\Attributes\TrackballAttribute.cs" />
@@ -98,11 +100,25 @@
      <Compile Include="Assets\PostProcessing\Runtime\Utils\MaterialFactory.cs" />
      <Compile Include="Assets\PostProcessing\Runtime\Utils\RenderTextureFactory.cs" />
      <Compile Include="Assets\PostProcessing\Utilities\CustomMotionTexture\ExampleWheelController.cs" />
+     <Compile Include="Assets\Scripts\BtnManager.cs" />
+     <Compile Include="Assets\Scripts\BtnManager1.cs" />
+     <Compile Include="Assets\Scripts\ChestDetermineEffectAndDestroy.cs" />
      <Compile Include="Assets\Scripts\GManager.cs" />
      <Compile Include="Assets\Scripts\MapManager.cs" />
+     <Compile Include="Assets\Scripts\MenuScript1.cs" />
+     <Compile Include="Assets\Scripts\MenuScript2.cs" />
      <Compile Include="Assets\Scripts\OverlapChecker.cs" />
      <Compile Include="Assets\Scripts\PlayerController.cs" />
+     <Compile Include="Assets\Scripts\PlayerHealth.cs" />
+     <Compile Include="Assets\Scripts\PlayerMana.cs" />
+     <Compile Include="Assets\Scripts\ProjectileDestroyUponContact.cs" />
+     <Compile Include="Assets\Scripts\ProjectileShoot.cs" />
+     <Compile Include="Assets\Scripts\QuitMenu.cs" />
+     <Compile Include="Assets\Scripts\Score.cs" />
+     <Compile Include="Assets\Scripts\SetFinalScore.cs" />
+     <Compile Include="Assets\Scripts\SlowSphere.cs" />
      <Compile Include="Assets\Scripts\ThirdPersonCamera.cs" />
+     <Compile Include="Assets\Scripts\ZombieAI.cs" />
      <None Include="Assets\PostProcessing\Resources\Shaders\DepthOfField.shader" />
      <None Include="Assets\PostProcessing\Resources\Shaders\MotionBlur.cginc" />
      <None Include="Assets\PostProcessing\Resources\Shaders\Fog.shader" />

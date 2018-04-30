@@ -54,9 +54,6 @@ public class PlayerController : MonoBehaviour
         // Player Animation
         float animationSpeedPercent = ((running) ? currentSpeed / runSpeed : currentSpeed / walkSpeed * .5f);
         animator.SetFloat("speedPercent", animationSpeedPercent, speedSmoothTime, Time.deltaTime);
-
-        bool jumpBool = ((!controller.isGrounded) ? true : false);
-        animator.SetBool("jumpCheck", jumpBool);
     }
     // Player Movement
     void Move(Vector2 inputDir, bool running)
@@ -138,6 +135,32 @@ public class PlayerController : MonoBehaviour
                 hit.gameObject.GetComponentInParent<MapManager>().SpawnNewChunk("West", refChunk);
                 Destroy(hit.gameObject);
             }
+        }
+
+        if(hit.transform.tag == "Chest")
+        {
+            float randomNum = Random.value;
+            Debug.Log("ANYTHING?");
+            GetComponent<PlayerMana>().ResetMana();
+            /*
+            if (randomNum < .50f)
+            {
+                Debug.Log("ANYTHING?");
+                GetComponent<PlayerMana>().ResetMana();
+            }
+            */
+            if (randomNum > .75f)
+            {
+                Debug.Log("ANYTHING?");
+                GetComponent<PlayerHealth>().ResetHealth();
+            }
+            else if (randomNum == .50f)
+            {
+                Debug.Log("ANYTHING?");
+                GetComponent<PlayerMana>().ResetMana();
+                GetComponent<PlayerHealth>().ResetHealth();
+            }
+            Destroy(hit.gameObject);
         }
     }
 }

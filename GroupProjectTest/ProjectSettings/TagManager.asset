@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Wall
   - SpawnChunk
+  - Enemy
+  - Projectile
+  - Chest
   layers:
   - Default
   - TransparentFX

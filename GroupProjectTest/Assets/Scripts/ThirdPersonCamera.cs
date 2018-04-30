@@ -31,15 +31,18 @@ public class ThirdPersonCamera : MonoBehaviour
 	// Update is called once per frame
 	void LateUpdate ()
     {
-        yaw += Input.GetAxis("Mouse X") * mouseSensitivity;
-        pitch -= Input.GetAxis("Mouse Y") * mouseSensitivity;
-        pitch = Mathf.Clamp(pitch, pitchMinMax.x, pitchMinMax.y);
+        if(target)
+        {
+            yaw += Input.GetAxis("Mouse X") * mouseSensitivity;
+            pitch -= Input.GetAxis("Mouse Y") * mouseSensitivity;
+            pitch = Mathf.Clamp(pitch, pitchMinMax.x, pitchMinMax.y);
 
-        currentRotation = Vector3.SmoothDamp(currentRotation, new Vector3(pitch, yaw), ref rotationSmoothVelocity, rotationSmoothTime);
+            currentRotation = Vector3.SmoothDamp(currentRotation, new Vector3(pitch, yaw), ref rotationSmoothVelocity, rotationSmoothTime);
 
-        //Vector3 targetRotation = new Vector3(pitch, yaw);
-        transform.eulerAngles = currentRotation;
+            //Vector3 targetRotation = new Vector3(pitch, yaw);
+            transform.eulerAngles = currentRotation;
 
-        transform.position = target.position - transform.forward * distFromTarget;
+            transform.position = target.position - transform.forward * distFromTarget;
+        }
 	}
 }

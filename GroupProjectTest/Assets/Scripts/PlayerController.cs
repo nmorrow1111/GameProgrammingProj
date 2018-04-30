@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-
     public float walkSpeed = 2.0f;
     public float runSpeed = 6.0f;
     public float gravity = -12.0f;
@@ -135,6 +134,32 @@ public class PlayerController : MonoBehaviour
                 hit.gameObject.GetComponentInParent<MapManager>().SpawnNewChunk("West", refChunk);
                 Destroy(hit.gameObject);
             }
+        }
+
+        if (hit.transform.tag == "Enemy")
+        {
+            GetComponent<PlayerHealth>().DealDamage(5f);
+            Debug.Log("Player hit.");
+        }
+
+        if (hit.transform.tag == "Chest")
+        {
+            float randomNum = Random.value;
+            Debug.Log("ANYTHING?");
+            GetComponent<PlayerMana>().ResetMana();
+            /*
+            if (randomNum < .50f)
+            {
+                Debug.Log("ANYTHING?");
+                GetComponent<PlayerMana>().ResetMana();
+            }
+            */
+            if (randomNum > .50f)
+            {
+                Debug.Log("ANYTHING?");
+                GetComponent<PlayerHealth>().ResetHealth();
+            }
+            Destroy(hit.gameObject);
         }
     }
 }
