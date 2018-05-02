@@ -19,16 +19,7 @@ public class PlayerMana : MonoBehaviour {
         manaBar.value = CalculateMana();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetMouseButtonDown(0) && !animator.GetBool("Shoot"))
-        {
-            TakeMana(10);
-        }
-    }
-
-    void TakeMana(float manaVal)
+    public void TakeMana(float manaVal)
     {
         CurrentMana -= manaVal;
         manaBar.value = CalculateMana();

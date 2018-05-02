@@ -58,6 +58,14 @@ public class ProjectileShoot : MonoBehaviour {
         {
             animator.SetTrigger("Shoot");
             StartCoroutine(TimeDelay());
+            if(projectile == iceball || projectile == energyball)
+            {
+                player.GetComponent<PlayerMana>().TakeMana(50);
+            }
+            else
+            {
+                player.GetComponent<PlayerMana>().TakeMana(10);
+            }
             //Rigidbody InstantiatedProjectile = Instantiate(projectile, transform.position, transform.rotation) as Rigidbody;
             //InstantiatedProjectile.velocity = transform.TransformDirection(new Vector3(0, 0, speed));
         }
